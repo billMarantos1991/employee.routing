@@ -32,10 +32,10 @@ public class AttributeController {
  
     //get attributes
     @GetMapping
-    public ResponseEntity<List<Attribute>> getAllAttributes() throws Exception {
+    public ResponseEntity<List<Attribute>> getAllAttributes()  {
         List<Attribute> list = service.getAllAttributes();
-       throw new Exception();
-        //return new ResponseEntity<List<Attribute>>(list, new HttpHeaders(), HttpStatus.OK);
+      
+        return new ResponseEntity<List<Attribute>>(list, new HttpHeaders(), HttpStatus.OK);
     }
     //get attribute by id
     @GetMapping("/{id}")
