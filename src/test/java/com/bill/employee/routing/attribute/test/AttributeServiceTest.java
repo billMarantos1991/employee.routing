@@ -1,4 +1,4 @@
-package com.bill.employee.routing.employee.routing;
+package com.bill.employee.routing.attribute.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
