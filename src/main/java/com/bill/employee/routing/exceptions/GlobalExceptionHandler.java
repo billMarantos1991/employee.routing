@@ -19,7 +19,18 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<ExceptionResponse>(response, HttpStatus.NOT_FOUND);
     }
+    
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ExceptionResponse> generalError(GeneralException ex) {
+        ExceptionResponse response = new ExceptionResponse();
+        response.setErrorCode("GENERAL_EXCEPTION");
+        response.setErrorMessage(ex.getMessage());
+        response.setTimestamp(LocalDateTime.now());
 
+        return new ResponseEntity<ExceptionResponse>(response, HttpStatus.EXPECTATION_FAILED);
+    }
+
+    
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<ExceptionResponse> customException(CustomException ex) {
         ExceptionResponse response=new ExceptionResponse();
