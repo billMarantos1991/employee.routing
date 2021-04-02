@@ -46,12 +46,10 @@ class AttributeServiceTest {
 	}
 	
 	
-
 	
 	@Test
 	void updateAttributeByIdTest() {
 		
-	
 
 		Attribute attribute = attributeService.getAttributeById(39L);
 		
