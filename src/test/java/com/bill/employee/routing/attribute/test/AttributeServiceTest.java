@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.bill.employee.routing.Application;
 import com.bill.employee.routing.model.Attribute;
-import com.bill.employee.routing.service.AttributeService;
+import com.bill.employee.routing.servicesa.AttributeService;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes =Application.class)

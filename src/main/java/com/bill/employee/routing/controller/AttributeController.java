@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bill.employee.routing.exceptions.ResourceNotFoundException;
 import com.bill.employee.routing.model.Attribute;
-import com.bill.employee.routing.service.AttributeService;
+import com.bill.employee.routing.servicesa.AttributeService;
 
 
 @RestController
