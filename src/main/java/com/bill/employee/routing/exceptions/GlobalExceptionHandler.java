@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 
 
 @ControllerAdvice
+
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
@@ -21,13 +22,13 @@ public class GlobalExceptionHandler {
     }
     
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ExceptionResponse> generalError(GeneralException ex) {
+    public ResponseEntity<ExceptionResponse> generalError(Exception ex) {
         ExceptionResponse response = new ExceptionResponse();
         response.setErrorCode("GENERAL_EXCEPTION");
         response.setErrorMessage(ex.getMessage());
         response.setTimestamp(LocalDateTime.now());
 
-        return new ResponseEntity<ExceptionResponse>(response, HttpStatus.EXPECTATION_FAILED);
+        return new ResponseEntity<ExceptionResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     
