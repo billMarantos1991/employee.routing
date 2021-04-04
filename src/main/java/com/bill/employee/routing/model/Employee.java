@@ -174,24 +174,32 @@ public class Employee {
 		this.attributes =updateAttributeList;
 	}
 	
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
 
-        if (obj.getClass() != this.getClass()) {
-            return false;
-        }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((employeeId == null) ? 0 : employeeId.hashCode());
+		return result;
+	}
 
-        final Employee other = (Employee) obj;
-        if ((this.employeeId == null) ? (other.employeeId != null) : !(this.employeeId ==  other.employeeId)) {
-            return false;
-        }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		if (employeeId == null) {
+			if (other.employeeId != null)
+				return false;
+		} else if (!employeeId.equals(other.employeeId))
+			return false;
+		return true;
+	}
 
-     
-        return true;
-    }
 	@Override
 	public String toString() {
 		return "Employee [employeeId=" + employeeId + ", attributes=" + attributes + ", addressId=" + addressId

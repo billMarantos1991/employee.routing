@@ -98,25 +98,33 @@ public class Attribute {
 		this.updatedDateTime = updatedDateTime;
 	}
 	
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
 
-        if (obj.getClass() != this.getClass()) {
-            return false;
-        }
-
-        final Attribute other = (Attribute) obj;
-        if ((this.attributeId == null) ? (other.attributeId != null) : !(this.attributeId ==  other.attributeId)) {
-            return false;
-        }
-
-     
-        return true;
-    }
     
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((attributeId == null) ? 0 : attributeId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Attribute other = (Attribute) obj;
+		if (attributeId == null) {
+			if (other.attributeId != null)
+				return false;
+		} else if (!attributeId.equals(other.attributeId))
+			return false;
+		return true;
+	}
+
 	@Override
 	public String toString() {
 		return "Attribute [attributeId=" + attributeId + ", description=" + description + ", attributeValue=" + attributeValue
